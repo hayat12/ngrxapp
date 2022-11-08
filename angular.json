@@ -73,6 +73,9 @@
             },
             "development": {
               "browserTarget": "ngrxapp:build:development"
+            },
+            "options": {
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -100,8 +103,28 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
+  },
+  "cli": {
+    "cache": {
+      "enabled": true
+    },
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
